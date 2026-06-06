@@ -11,7 +11,11 @@ const app = express();
 // Middlewares
 app.use(cors(
     {
-        origin: process.env.CLIENT_URL ? process.env.CLIENT_URL.replace(/\/$/, "") : "http://localhost:5173",
+        origin: [
+            process.env.CLIENT_URL ? process.env.CLIENT_URL.replace(/\/$/, "") : "http://localhost:5173",
+            "http://localhost:5173",
+            "https://nexora-ai-opal-mu.vercel.app"
+        ],
         credentials: true,
     }
 ));
